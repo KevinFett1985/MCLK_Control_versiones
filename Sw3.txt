@@ -21,3 +21,42 @@ enable secret cisco
 service password-encryption
 exit
 wr
+Sw3(config-line)#exit
+Sw3(config)#vlan 5
+Sw3(config-vlan)# name Admin-TI
+Sw3(config-vlan)#vlan 6
+Sw3(config-vlan)# name RRHH
+Sw3(config-vlan)#vlan 7
+Sw3(config-vlan)# name Voz
+Sw3(config-vlan)#vlan 8
+Sw3(config-vlan)# name Nativa
+Sw3(config-vlan)#vlan 20
+Sw3(config-vlan)# name NO-USAR
+Sw3(config-vlan)#exit
+Sw3(config)#int g0/1
+Sw3(config-if)#switchport mode dynamic desirable
+Sw3(config-if)#switchport trunk allowed vlan 5,6,7,8,20
+Sw3(config-if)#switchport trunk native vlan 8
+Sw3(config-if)#exit
+Sw3(config)#int range fa0/1
+Sw3(config-if)#switchport mode dynamic desirable
+Sw3(config-if)#switchport trunk allowed vlan 5,6,7,8,20
+Sw3(config-if)#switchport trunk native vlan 8
+Sw3(config-if)#exit
+Sw3(config)#int fa0/2
+Sw3(config-if)#sw mod access
+Sw3(config-if)#sw access vlan 8
+Sw3(config-if-range)#exit
+Sw3(config)#int fa0/2
+Sw3(config-if)#sw mod access
+Sw3(config-if)#sw access vlan 8
+Sw3(config-if)#exit
+Sw3(config)#int range fa0/3-24
+Sw3(config-if-range)#sw mod access
+Sw3(config-if-range)#sw access vlan 20
+Sw3(config-if-range)#shutdown
+Sw3(config-if-range)#exit
+Sw3(config)#int g0/2
+Sw3(config-if)#sw mod access
+Sw3(config-if)#sw access vlan 20
+Sw3(config-if)#shutdown
