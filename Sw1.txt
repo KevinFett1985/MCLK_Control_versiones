@@ -50,3 +50,9 @@ Sw1(config)#int range fa0/2-24
 Sw1(config-if-range)#sw mod access
 Sw1(config-if-range)#sw access vlan 20
 Sw1(config-if-range)#shutdown
+
+Sw1(config)#int vlan 5
+Sw1(config-if)#ip add 192.168.5.5 255.255.255.0
+Sw1(config-if)#no shutdown
+Sw1(config-if)#exit
+Sw1(config)#ip default-gateway 192.168.5.1

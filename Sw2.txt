@@ -61,3 +61,10 @@ Sw2(config-if)#sw access vlan 20
 Sw2(config-if)#shutdown
 Sw2(config-if)#exit
 Sw2(config)#
+
+Sw2(config)#int vlan 5
+Sw2(config-if)#ip add 192.168.5.6 255.255.255.0
+Sw2(config-if)#no shutdown
+Sw2(config-if)#exit
+Sw3(config)#ip default-gateway 192.168.5.1
+
