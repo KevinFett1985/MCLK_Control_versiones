@@ -67,3 +67,7 @@ Sw3(config-if)#ip add 192.168.5.7 255.255.255.0
 Sw3(config-if)#no shutdown
 Sw3(config-if)#exit
 Sw3(config)#ip default-gateway 192.168.5.1
+
+Sw3(config)#interface range fastethernet 0/3 - 23
+Sw3(config-if)#spanning-tree portfast
+Sw3(config-if)#spanning-tree bpduguard enable

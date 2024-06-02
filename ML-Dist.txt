@@ -70,3 +70,14 @@ ML-Dist(config-if)# exit
 
 ML-Dist(config)# ip routing
 ML-Dist(config)# exit
+
+ML-Dist(config)#int range g1/0/4-g1/1/4
+ML-Dist(config-if-range)#spanning-tree portfast
+ML-Dist(config-if-range)#spanning-tree bpduguard enable
+
+ML-Dist(config)#spanning-tree vlan 5 root primary
+ML-Dist(config)#spanning-tree vlan 6 root primary
+ML-Dist(config)#spanning-tree vlan 7 root primary
+ML-Dist(config)#spanning-tree vlan 8 root primary
+ML-Dist(config)#spanning-tree vlan 20 root primary
+
