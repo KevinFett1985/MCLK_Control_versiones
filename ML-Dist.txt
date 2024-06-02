@@ -21,3 +21,28 @@ enable secret cisco
 service password-encryption
 exit
 wr
+ML-Dist(config-vlan)# name Admin-TI
+ML-Dist(config-vlan)#vlan 6
+ML-Dist(config-vlan)# name RRHH
+ML-Dist(config-vlan)#vlan 7
+ML-Dist(config-vlan)# name Voz
+ML-Dist(config-vlan)#vlan 8
+ML-Dist(config-vlan)# name Nativa
+ML-Dist(config-vlan)#vlan 20
+ML-Dist(config-vlan)# name NO-USAR
+ML-Dist(config-vlan)#exit
+ML-Dist(config-vlan)#exit
+ML-Dist(config)#int range g1/0/4-24
+ML-Dist(config-if-range)#sw mod access
+ML-Dist(config-if-range)#sw access vlan 20
+ML-Dist(config-if-range)#shutdown
+ML-Dist(config-vlan)#exit
+ML-Dist(config)#int range g1/0/4-24
+ML-Dist(config-if-range)#sw mod access
+ML-Dist(config-if-range)#sw access vlan 20
+ML-Dist(config-if-range)#shutdown
+ML-Dist(config-if-range)#exit
+ML-Dist(config)#int range g1/0/1-3
+ML-Dist(config-if-range)#switchport mode dynamic desirable
+ML-Dist(config-if-range)#switchport trunk allowed vlan 5,6,7,8,20
+ML-Dist(config-if-range)#switchport trunk native vlan 8

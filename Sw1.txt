@@ -22,3 +22,31 @@ EXEC-timeout 5 30
 service password-encryption
 exit
 wr
+Sw1(config)#vlan 5
+Sw1(config-vlan)# name Admin-TI
+Sw1(config-vlan)#vlan 6
+Sw1(config-vlan)# name RRHH
+Sw1(config-vlan)#vlan 7
+Sw1(config-vlan)# name Voz
+Sw1(config-vlan)#vlan 8
+Sw1(config-vlan)# name Nativa
+Sw1(config-vlan)#vlan 20
+Sw1(config-vlan)# name NO-USAR
+Sw1(config)#int g0/1
+Sw1(config-if)#switchport mode dynamic desirable
+Sw1(config-if)#switchport trunk allowed vlan 5,6,7,8,20
+Sw1(config-if)#switchport trunk native vlan 8
+Sw1(config-if)#exit
+Sw1(config)#int fa0/1
+Sw1(config-if)#switchport mode dynamic desirable
+Sw1(config-if)#switchport trunk allowed vlan 5,6,7,8,20
+Sw1(config-if)#switchport trunk native vlan 8
+Sw1(config-if)#exit
+Sw1(config)#int g0/2
+Sw1(config-if)#sw mod access
+Sw1(config-if)#sw access vlan 5
+Sw1(config-line)#exit
+Sw1(config)#int range fa0/2-24
+Sw1(config-if-range)#sw mod access
+Sw1(config-if-range)#sw access vlan 20
+Sw1(config-if-range)#shutdown
