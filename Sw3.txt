@@ -60,3 +60,10 @@ Sw3(config)#int g0/2
 Sw3(config-if)#sw mod access
 Sw3(config-if)#sw access vlan 20
 Sw3(config-if)#shutdown
+
+
+Sw3(config)#int vlan 5
+Sw3(config-if)#ip add 192.168.5.7 255.255.255.0
+Sw3(config-if)#no shutdown
+Sw3(config-if)#exit
+Sw3(config)#ip default-gateway 192.168.5.1
